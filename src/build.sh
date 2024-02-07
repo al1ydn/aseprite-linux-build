@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 #1. Install Docker
-#sudo apt-get install -y curl
-#curl -L https://get.docker.io | bash
-#sudo service docker start
-#sudo usermod -aG docker $USER
-#exec sudo --login --user "$USER" /bin/sh -c "cd '$PWD'; exec '$SHELL' -l"
+sudo apt-get install -y curl
+curl -L https://get.docker.io | bash
+sudo service docker start
+sudo usermod -aG docker $USER
+exec sudo --login --user "$USER" /bin/sh -c "cd '$PWD'; exec '$SHELL' -l"
 
 #2. Build image
 docker build -t aseprite-linux-build:v1.3.2 .
@@ -23,5 +23,5 @@ docker create --name ase aseprite-linux-build:v1.3.2 null
 docker cp ase:/app/bin .
 
 #4. Launch Aseprite
-#sudo apt-get install -y ffmpeg libsm6 libxext6 libc++-dev
-#./bin/aseprite
+sudo apt-get install -y ffmpeg libsm6 libxext6 libc++-dev
+./bin/aseprite
